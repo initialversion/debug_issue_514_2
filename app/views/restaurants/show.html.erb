@@ -57,6 +57,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_question" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for option_1 -->
+      <div class="form-group">
+        <label for="option_1" class="control-label">
+          Option 1
+        </label>
+
+        <input type="text" id="option_1" name="option_1" placeholder="Option 1" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for option_2 -->
+      <div class="form-group">
+        <label for="option_2" class="control-label">
+          Option 2
+        </label>
+
+        <input type="text" id="option_2" name="option_2" placeholder="Option 2" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Question
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

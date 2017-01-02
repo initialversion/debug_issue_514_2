@@ -63,6 +63,32 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_response" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for question_id -->
+      <input type="hidden" name="question_id" value="<%= @question.id %>">
+
+      <!-- Label and input for selection -->
+      <div class="form-group">
+        <label for="selection" class="control-label">
+          Selection
+        </label>
+
+        <input type="text" id="selection" name="selection" placeholder="Selection" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Response
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
