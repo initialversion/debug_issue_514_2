@@ -33,7 +33,7 @@
           Question
         </label>
 
-        <input type="text" id="question_id" name="question_id" placeholder="Question" class="form-control" value="<%= @response.question_id %>">
+        <%= select_tag(:question_id, options_from_collection_for_select(Question.all, :id, :body, @response.question_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for selection -->
