@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.page(params[:page]).per(10)
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(:distinct => true).includes(:restaurant, :responses).page(params[:page]).per(10)
 
     render("questions/index.html.erb")
   end
