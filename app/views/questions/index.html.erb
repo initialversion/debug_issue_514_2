@@ -23,7 +23,7 @@
         <td><%= question.option_1 %></td>
         <td><%= question.option_2 %></td>
         <td><%= question.name %></td>
-        <td><%= question.restaurant_id %></td>
+        <td><%= question.restaurant.name %></td>
         <td>
           <a href="/questions/<%= question.id %>" class="btn btn-primary">Show</a>
           <a href="/questions/<%= question.id %>/edit" class="btn btn-warning">Edit</a>
