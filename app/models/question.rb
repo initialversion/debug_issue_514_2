@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
   # Direct associations
 
+  has_many   :responses,
+             :dependent => :destroy
+
   belongs_to :restaurant
 
   # Indirect associations
