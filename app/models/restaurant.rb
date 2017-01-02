@@ -1,6 +1,9 @@
 class Restaurant < ApplicationRecord
   # Direct associations
 
+  has_many   :questions,
+             :dependent => :destroy
+
   belongs_to :user
 
   # Indirect associations
