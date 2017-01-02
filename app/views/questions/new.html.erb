@@ -60,7 +60,7 @@
           Restaurant
         </label>
 
-        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @question.restaurant_id %>">
+        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :name, @question.restaurant_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
