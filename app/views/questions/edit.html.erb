@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @question.errors.any? %>
+  <% @question.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Question #<%= @question.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_question/<%= @question.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @question.body %></textarea>
+      </div>
+
+      <!-- Label and input for option_1 -->
+      <div class="form-group">
+        <label for="option_1" class="control-label">
+          Option 1
+        </label>
+
+        <input type="text" id="option_1" name="option_1" placeholder="Option 1" class="form-control" value="<%= @question.option_1 %>">
+      </div>
+
+      <!-- Label and input for option_2 -->
+      <div class="form-group">
+        <label for="option_2" class="control-label">
+          Option 2
+        </label>
+
+        <input type="text" id="option_2" name="option_2" placeholder="Option 2" class="form-control" value="<%= @question.option_2 %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @question.name %>">
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @question.restaurant_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Question
+      </button>
+      or
+      <a href="/questions/<%= @question.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
