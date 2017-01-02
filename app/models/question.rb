@@ -5,4 +5,6 @@ class Question < ApplicationRecord
 
   # Validations
 
+  validates :option_2, :presence => true
+
 end
