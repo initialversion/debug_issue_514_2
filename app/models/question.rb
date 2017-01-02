@@ -5,6 +5,8 @@ class Question < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   validates :option_1, :uniqueness => { :scope => [:option_2] }
 
   validates :option_1, :presence => true
