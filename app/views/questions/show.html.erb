@@ -18,7 +18,13 @@
       <dd><%= @question.name %></dd>
 
       <dt>Restaurant</dt>
-      <dd><%= @question.restaurant_id %></dd>
+      <dd>
+        <% if @question.restaurant.present? %>
+          <a href="/restaurants/<%= @question.restaurant_id %>">
+            <%= @question.restaurant.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

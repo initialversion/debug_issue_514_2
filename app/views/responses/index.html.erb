@@ -17,8 +17,20 @@
 
       <% @responses.each do |response| %>
       <tr>
-        <td><%= response.user.email %></td>
-        <td><%= response.question.body %></td>
+        <td>
+          <% if response.user.present? %>
+            <a href="/users/<%= response.user.id %>">
+              <%= response.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if response.question.present? %>
+            <a href="/questions/<%= response.question.id %>">
+              <%= response.question.body %>
+            </a>
+          <% end %>
+        </td>
         <td><%= response.selection %></td>
         <td>
           <a href="/responses/<%= response.id %>" class="btn btn-primary">Show</a>

@@ -23,7 +23,13 @@
         <td><%= question.option_1 %></td>
         <td><%= question.option_2 %></td>
         <td><%= question.name %></td>
-        <td><%= question.restaurant.name %></td>
+        <td>
+          <% if question.restaurant.present? %>
+            <a href="/restaurants/<%= question.restaurant.id %>">
+              <%= question.restaurant.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/questions/<%= question.id %>" class="btn btn-primary">Show</a>
           <a href="/questions/<%= question.id %>/edit" class="btn btn-warning">Edit</a>
